@@ -1,0 +1,59 @@
+
+<mat-table #table
+ [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+  <ng-container matColumnDef="firstname">
+    <mat-header-cell *matHeaderCellDef> firstname </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.firstname}} </mat-cell>
+  </ng-container>
+
+  
+  <ng-container matColumnDef="lastname">
+    <mat-header-cell *matHeaderCellDef> lastname</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.lastname}} </mat-cell>
+  </ng-container>
+
+  
+  <ng-container matColumnDef="email">
+    <mat-header-cell *matHeaderCellDef>email </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+  </ng-container>
+
+  
+  <ng-container matColumnDef="mobile">
+    <mat-header-cell *matHeaderCellDef> mobile</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.mobile}} </mat-cell>
+  </ng-container>
+  
+  <!-- <ng-container matColumnDef="profile_image">
+    <mat-header-cell *matHeaderCellDef> Profile Image </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.profile_image}} </mat-cell>
+  </ng-container> -->
+
+  <ng-container matColumnDef="update">
+    <mat-header-cell *matHeaderCellDef>Update</mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <button
+      mat-raised-button color="accent"
+        
+        (click)="redirectToUpdate(element.id)"
+      >
+      Edit
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="delete">
+    <mat-header-cell *matHeaderCellDef>Delete</mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <button
+        mat-icon-button
+        color="warn"
+        (click)="redirectToDelete(element.id)"
+      >
+       Delete
+      </button>
+    </mat-cell>
+  </ng-container>
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>

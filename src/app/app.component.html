@@ -1,0 +1,8 @@
+<router-outlet></router-outlet>
+<button mat-raised-button color="accent" (click)="getData()">
+  Fetch Data
+</button>
+
+<ng-container *ngIf="isDisplay">
+  <app-userList></app-userList>
+</ng-container>
